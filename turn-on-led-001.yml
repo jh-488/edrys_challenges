@@ -1,0 +1,80 @@
+id: SOL5YCj3DZza09sjus6waPbUQO721rmpCxZlDq23
+createdBy: JH488
+dateCreated: 27032024
+name: Turn on LED
+meta:
+  logo: >-
+    
+  description: >-
+    Simple Arduino exercise, to turn on the built-in LED.  
+  selfAssign: true
+  defaultNumberOfRooms: 0
+  id: 79sFHo6ONB1S25cTN7emXmOibQ2HNWb2G9X3Xn2y
+members:
+  teacher: []
+  student: []
+modules:
+  - url: https://cross-lab-project.github.io/edrys_module-markdown-it/index.html
+    config: >
+      # Welcome to the Edrys -  turn-on-led-001 - challenge
+
+      This is a simple exercise to get you started with Arduino development.
+
+      In this exercise you will need to write a program that will turn the built-in LED on.
+
+
+      ## Open a station
+
+      To get started, open the station where the code editor will be available.
+
+      If you own this course, simply open the settings by clicking onto the
+      gear-symbol, switch to "station" settings and open or share the link.
+
+      Otherwise simply copy the entire url and replace `classroom` by `station`
+      ...
+
+
+      Afterwards a new station will appear on the navigation bar on the left.
+      Click on it and you will be redirected to the station.
+
+    studentConfig: ''
+    teacherConfig: ''
+    stationConfig: ''
+    showInCustom: lobby
+    width: full
+    height: huge
+  - url: http://127.0.0.1:5500/index.html
+    config:
+      editorText: |
+        /*
+          Turn On LED
+
+          Turns on the built in LED on the arduino board.
+
+          Most Arduinos have an on-board LED you can control. If you want to know what pin the on-board LED is connected to on your Arduino
+          model, check the Technical Specs of your board at:
+          https://www.arduino.cc/en/Main/Products
+        */
+
+        // the setup function runs once when you press reset or power the board
+        void setup() {
+
+        }
+
+        // the loop function runs over and over again forever
+        void loop() {
+
+        }
+      runCommand: execute
+      language: cpp
+    showInCustom: station
+    width: full
+    height: huge
+    challengeId: turn-on-led-001
+  - url: https://cross-lab-project.github.io/edrys_module-station-stream/index.html
+    stationConfig:
+      video: true
+      audio: false
+    showInCustom: station
+    width: half
+    height: medium
