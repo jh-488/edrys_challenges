@@ -43,7 +43,7 @@ modules:
     showInCustom: lobby
     width: full
     height: huge
-  - url: http://127.0.0.1:5500/index.html
+  - url: https://jh-488.github.io/Edrys_Code_Editor/index.html
     config:
       editorText: |
         /*
