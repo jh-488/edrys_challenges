@@ -1,0 +1,74 @@
+id: ETHybsj3DZza09sjus6waPbUQO721rmpCxZl488
+createdBy: JH488
+dateCreated: 11042024
+name: Turn on LED (Multiplayer)
+meta:
+  logo: >-
+    
+  description: >-
+    Multiplayer Arduino exercise, to turn on the built-in LED.  
+  selfAssign: true
+  defaultNumberOfRooms: 0
+  id: 175sFHo6ONB1S25cTN7emXmOibQ2HNWb2G9X3Xn0
+members:
+  teacher: []
+  student: []
+modules:
+  - url: https://cross-lab-project.github.io/edrys_module-markdown-it/index.html
+    config: >
+      # Welcome to the Edrys -  turn-on-led - challenge (Multiplayer Mode)
+
+      This is a simple exercise to get you started with Arduino development.
+
+      In this exercise you will need to write a program that will turn the built-in LED on, before the timer runs out.
+
+      The first player to solve the challenge will win the game.
+
+
+      ## Open a station
+
+      To get started, open the station where the code editor and timer will be available.
+
+      The station will appear on the navigation bar on the left.
+      Click on it and you will be redirected to the station.
+
+    studentConfig: ''
+    teacherConfig: ''
+    stationConfig: ''
+    showInCustom: lobby
+    width: full
+    height: huge
+  - url: http://127.0.0.1:5500/index.html
+    config:
+      editorText: |
+        void setup() {
+
+        }
+
+        void loop() {
+
+        }
+      runCommand: execute
+      language: cpp
+    showInCustom: station
+    width: full
+    height: huge
+    serverURL: ws://localhost:8080
+    challengeId: turn-on-led-001
+    challengeType: multiplayer
+  - url: https://edrys-labs.github.io/module-station-stream/index.html
+    config: ''
+    studentConfig: ''
+    teacherConfig: ''
+    stationConfig:
+      video: true
+      audio: false
+    showInCustom: Station
+    width: half
+    height: medium
+  - url: http://127.0.0.1:5502/index.html
+    config:
+      timer: 5
+    showInCustom: station
+    width: half
+    height: medium

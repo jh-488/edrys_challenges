@@ -1,0 +1,253 @@
+id: BONK5YCj3DZza09sjus6waPbUQO721rmpCxZlJH2
+createdBy: JH488
+dateCreated: 09052024
+name: Snake Game
+meta:
+  logo: >-
+    
+  description: >-
+    A fun Arduino snake game.   
+  selfAssign: true
+  defaultNumberOfRooms: 0
+  id: 79sFHo6ONB1S25cTN7emXmOibQ2HNWb2G9X3Xn2y
+members:
+  teacher: []
+  student: []
+modules:
+  - url: https://cross-lab-project.github.io/edrys_module-markdown-it/index.html
+    config: >
+      # Welcome to the Edrys -  Snake Game
+
+      This is an arduino game where you will need to modify the given code
+      to display an item on the LED Matrix and move the snake to eat it.
+
+
+
+      To win the game, you will need to make the snake eat the item.
+      If the snake hits the borders or itself, you will lose the game.
+
+
+
+      The tasks to complete are marked with /\* Task n°: ....\*/ in the code.
+
+      ## Open a station
+
+      To get started, open the station where the code editor will be available.
+
+
+
+      (a new station will appear on the navigation bar on the left.
+      Click on it and you will be redirected to the station)
+
+    studentConfig: ''
+    teacherConfig: ''
+    stationConfig: ''
+    showInCustom: lobby
+    width: full
+    height: huge
+  - url: http://127.0.0.1:5500/index.html
+    config:
+      editorText: |
+        /*
+          Modify the code to display an item on the LED Matrix and move the snake to eat it.
+        */
+
+        #include <LedControl.h>
+
+        typedef struct Snake Snake;
+        struct Snake {
+          int head[2];     // the (row, column) of the snake head
+          int body[40][2]; //An array that contains the (row, column) coordinates
+          int len;         //The length of the snake 
+          int dir[2];      //A direction to move the snake along
+        };
+
+        typedef struct Item Item;
+        struct Item {
+          int rPos; //The row index of the item
+          int cPos; //The column index of the item
+        };
+
+        //MAX72XX led Matrix
+        const int DIN = 12;
+        const int CS = 11;
+        const int CLK = 10;
+        LedControl lc = LedControl(DIN, CLK, CS, 1);
+
+        byte MRows[8] = {0, 0, 0, 0, 0, 0, 0, 0}; //The 8 rows of the LED Matrix
+
+        Snake snake = /* Task 1: initialize a snake object */;
+        Item item;
+
+        //Variables To Handle The Game Time
+        float oldTime = 0;
+        float timer = 0;
+        float updateRate = 3;
+
+
+        bool itemEaten; //A flag to check if the item is eaten
+
+        int i, j; //Counters
+
+        void setup() {
+          // The MAX72XX is in power-saving mode on startup, we have to do a wakeup call
+          lc.shutdown(0, false);
+          // Set the brightness to a medium value
+          lc.setIntensity(0, 1);
+          // and clear the display 
+          lc.clearDisplay(0);
+
+          /* Task 2: Generate a random position for the item */
+          item.rPos = 
+          item.cPos = 
+        }
+
+        void loop() {
+          /* Task 3: Display a happy face if the item is eaten */
+          if (itemEaten) {
+            
+            return;
+          }
+
+          float deltaTime = calculateDeltaTime();
+          timer += deltaTime;
+
+          if (timer > 2000 / updateRate) {
+            timer = 0;
+            Update();
+          }
+
+          Render();
+        }
+
+        float calculateDeltaTime() {
+          float currentTime = millis();
+          float dt = currentTime - oldTime;
+          oldTime = currentTime;
+          return dt;
+        }
+
+        void reset() {
+          for (int j = 0; j < 8; j++) {
+            /* Task 4: Clear the 8x8 LED matrix */
+          }
+        }
+
+        void Update() {
+          reset(); //Clear the 8x8 LED matrix
+
+          // Determine the direction towards the item
+          int deltaX = item.cPos - snake.head[1];
+          int deltaY = item.rPos - snake.head[0];
+
+          if (deltaX > 0) {
+            snake.dir[0] = 0;
+            snake.dir[1] = 1;
+          } else if (deltaX < 0) {
+            snake.dir[0] = 0;
+            snake.dir[1] = -1;
+          } else if (deltaY > 0) {
+            snake.dir[0] = 1;
+            snake.dir[1] = 0;
+          } else if (deltaY < 0) {
+            snake.dir[0] = -1;
+            snake.dir[1] = 0;
+          }
+
+          int newHead[2] = {snake.head[0] + snake.dir[0], snake.head[1] + snake.dir[1]};
+
+          //Handle Borders
+          if (newHead[0] == 8 || newHead[0] == -1 || newHead[1] == 8 || newHead[1] == -1) {
+            /* Task 5: Display a sad face if the snake hits the borders */
+            return;
+          } 
+
+          //Check If The Snake hits itself
+          for (j = 0; j < snake.len; j++) {
+            if (snake.body[j][0] == newHead[0] && snake.body[j][1] == newHead[1]) {
+              displaySadFace(); // Display sad face if snake hits itself
+              return;
+            }
+          }
+
+          //Check if The snake ate the item
+          if (newHead[0] == item.rPos && newHead[1] == item.cPos) {
+            /* Task 6: Update the itemEaten flag */
+          } else {
+            removeFirst(); //Shifting the array to the left
+          }
+
+          snake.body[snake.len - 1][0] = newHead[0];
+          snake.body[snake.len - 1][1] = newHead[1];
+
+          snake.head[0] = newHead[0];
+          snake.head[1] = newHead[1];
+
+          //Update the MRows Array to Display(snake and item)
+          for (j = 0; j < snake.len; j++) {
+            MRows[snake.body[j][0]] |= 128 >> snake.body[j][1];
+          }
+          MRows[item.rPos] |= 128 >> item.cPos;
+        }
+
+        void Render() {
+          for (i = 0; i < 8; i++) {
+            lc.setRow(0, i, MRows[i]);
+          }
+        }
+
+        void removeFirst() {
+          for (j = 1; j < snake.len; j++) {
+            snake.body[j - 1][0] = snake.body[j][0];
+            snake.body[j - 1][1] = snake.body[j][1];
+          }
+        }
+
+        void displayHappyFace() {
+          reset();
+
+          byte hf[8]= {B00111100,B01000010,B10100101,B10000001,B10100101,B10011001,B01000010,B00111100};
+
+          lc.setRow(0,0,hf[0]);
+          lc.setRow(0,1,hf[1]);
+          lc.setRow(0,2,hf[2]);
+          lc.setRow(0,3,hf[3]);
+          lc.setRow(0,4,hf[4]);
+          lc.setRow(0,5,hf[5]);
+          lc.setRow(0,6,hf[6]);
+          lc.setRow(0,7,hf[7]);
+          delay(1000);
+        }
+
+        void displaySadFace() {
+          reset();
+
+          byte sf[8]= {B00111100,B01000010,B10100101,B10000001,B10011001,B10100101,B01000010,B00111100};
+
+          lc.setRow(0,0,sf[0]);
+          lc.setRow(0,1,sf[1]);
+          lc.setRow(0,2,sf[2]);
+          lc.setRow(0,3,sf[3]);
+          lc.setRow(0,4,sf[4]);
+          lc.setRow(0,5,sf[5]);
+          lc.setRow(0,6,sf[6]);
+          lc.setRow(0,7,sf[7]);
+          delay(1000);
+        }
+      runCommand: execute
+      language: cpp
+    showInCustom: station
+    width: full
+    height: huge
+    serverURL: ws://localhost:8080
+    challengeId: snake-game
+  - url: https://edrys-labs.github.io/module-station-stream/index.html
+    config: ''
+    studentConfig: ''
+    teacherConfig: ''
+    stationConfig:
+      video: true
+      audio: false
+    showInCustom: Station
+    width: half
+    height: medium

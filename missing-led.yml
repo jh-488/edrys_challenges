@@ -1,0 +1,79 @@
+id: ZRLybsj3DZza09sjus6waPbUQO721rmpCxZl0RS3
+createdBy: JH488
+dateCreated: 05052024
+name: Missing LED
+meta:
+  logo: >-
+    
+  description: >-
+    Arduino challenge, to turn on the missing LED and turn off the other LEDs. 
+  selfAssign: true
+  defaultNumberOfRooms: 0
+  id: 56sFHo6ONB1S25cTN7emXmOibQ2HNWb2G9X3Xn44
+members:
+  teacher: []
+  student: []
+modules:
+  - url: https://cross-lab-project.github.io/edrys_module-markdown-it/index.html
+    config: >
+      # Welcome to the Edrys -  Missing LED - challenge 
+
+      After starting the challenge, 2 LEDs out of the 3 will be turned on. 
+      
+      You will need to write a program that will turn on the missing one and turn off the other LEDs.
+
+
+      ## Open a station
+
+      To get started, open the station where the code editor and the challenge module will be available.
+
+      The station will appear on the navigation bar on the left.
+      Click on it and you will be redirected to the station.
+
+    studentConfig: ''
+    teacherConfig: ''
+    stationConfig: ''
+    showInCustom: lobby
+    width: full
+    height: huge
+  - url: http://127.0.0.1:5500/index.html
+    config:
+      editorText: |
+        /*
+          Missing LED
+
+          Turn on the missing LED and turn off the other LEDs.
+
+          The red LED is connected to pin 13, the yellow LED is connected to pin 12 and the green LED is connected to pin 11.
+        */
+
+        void setup() {
+
+        }
+
+        void loop() {
+
+        }
+      runCommand: execute
+      language: cpp
+    showInCustom: station
+    width: full
+    height: huge
+    serverURL: ws://localhost:8080
+    challengeId: missing-led
+  - url: https://edrys-labs.github.io/module-station-stream/index.html
+    config: ''
+    studentConfig: ''
+    teacherConfig: ''
+    stationConfig:
+      video: true
+      audio: false
+    showInCustom: Station
+    width: half
+    height: medium
+  - url: http://127.0.0.1:5501/index.html
+    config:
+      timer: 5
+    showInCustom: station
+    width: half
+    height: medium

@@ -1,34 +1,36 @@
-id: SOL5YCj3DZza09sjus6waPbUQO721rmpCxZlDq23
+id: MOLybsj3DZza09sjus6waPbUQO721rmpCxZl007
 createdBy: JH488
-dateCreated: 27032024
-name: Turn on LED
+dateCreated: 02042024
+name: Turn on LED with Timer
 meta:
   logo: >-
     
   description: >-
-    Simple Arduino exercise, to turn on the built-in LED.  
+    Time restricted Arduino exercise, to turn on the built-in LED.  
   selfAssign: true
   defaultNumberOfRooms: 0
-  id: 79sFHo6ONB1S25cTN7emXmOibQ2HNWb2G9X3Xn2y
+  id: 52sFHo6ONB1S25cTN7emXmOibQ2HNWb2G9X3Xn27
 members:
   teacher: []
   student: []
 modules:
   - url: https://cross-lab-project.github.io/edrys_module-markdown-it/index.html
     config: >
-      # Welcome to the Edrys -  turn-on-led-001 - challenge
+      # Welcome to the Edrys -  turn-on-led - challenge (Time restricted)
 
       This is a simple exercise to get you started with Arduino development.
 
-      In this exercise you will need to write a program that will turn the built-in LED on.
+      In this exercise you will need to write a program that will turn the built-in LED on, before the timer runs out.
+
+      To start making changes in the editor you need to start the timer.
 
 
       ## Open a station
 
-      To get started, open the station where the code editor will be available.
+      To get started, open the station where the code editor and timer will be available.
 
-      (a new station will appear on the navigation bar on the left.
-      Click on it and you will be redirected to the station.)
+      The station will appear on the navigation bar on the left.
+      Click on it and you will be redirected to the station.
 
     studentConfig: ''
     teacherConfig: ''
@@ -36,13 +38,13 @@ modules:
     showInCustom: lobby
     width: full
     height: huge
-  - url: https://jh-488.github.io/Edrys_Code_Editor/index.html
+  - url: http://127.0.0.1:5500/index.html
     config:
       editorText: |
         /*
           Turn On LED
 
-          Turns on the built in LED on the arduino board.
+          Turn on the built in LED on the arduino board.
 
           Most Arduinos have an on-board LED you can control. If you want to know what pin the on-board LED is connected to on your Arduino
           model, check the Technical Specs of your board at:
@@ -65,6 +67,7 @@ modules:
     height: huge
     serverURL: ws://localhost:8080
     challengeId: turn-on-led-001
+    challengeType: time-restricted
   - url: https://edrys-labs.github.io/module-station-stream/index.html
     config: ''
     studentConfig: ''
@@ -73,5 +76,11 @@ modules:
       video: true
       audio: false
     showInCustom: Station
+    width: half
+    height: medium
+  - url: http://127.0.0.1:5501/index.html
+    config:
+      timer: 5
+    showInCustom: station
     width: half
     height: medium
