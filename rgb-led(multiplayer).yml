@@ -1,0 +1,62 @@
+id: tyj3DZza09sjus6waPbUQO721rmpCxZlsc77
+createdBy: JH488
+dateCreated: 23052024
+name: RGB LED (Multiplayer Mode)
+meta:
+  logo: >-
+    
+  description: >-
+    A fill the blank challenge to change the color of the RGB LED.  
+  selfAssign: true
+  defaultNumberOfRooms: 0
+  id: rsj3DZza09sjus6waPbUQO721rmpCxZlsc63
+members:
+  teacher: []
+  student: []
+modules:
+  - url: https://cross-lab-project.github.io/edrys_module-markdown-it/index.html
+    config: >
+      # Welcome to the Edrys -  RGB LED - challenge (Multiplayer Mode)
+
+      After starting the challenge, a random color will be chosen and you will
+      have to fill in the blanks to change the color of the RGB LED to the chosen 
+      color.
+
+
+      ## Open a station
+
+      To get started, open the station where you can start solving the challenge.
+
+      (a new station will appear on the navigation bar on the left.
+      Click on it and you will be redirected to the station.)
+
+    studentConfig: ''
+    teacherConfig: ''
+    stationConfig: ''
+    showInCustom: lobby
+    width: full
+    height: huge
+  - url: https://jh-488.github.io/edrys_module_rgbLed/index.html
+    config: ""
+    showInCustom: station
+    width: full
+    height: huge
+    serverURL: ws://localhost:8080
+    challengeId: rgb-led
+    challengeType: multiplayer
+  - url: https://edrys-labs.github.io/module-station-stream/index.html
+    config: ''
+    studentConfig: ''
+    teacherConfig: ''
+    stationConfig:
+      video: true
+      audio: false
+    showInCustom: Station
+    width: half
+    height: medium
+  - url: https://jh-488.github.io/edrys_module_multiplayer/index.html
+    config:
+      timer: 5
+    showInCustom: station
+    width: half
+    height: medium

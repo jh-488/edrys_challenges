@@ -38,7 +38,7 @@ modules:
     showInCustom: lobby
     width: full
     height: huge
-  - url: http://127.0.0.1:5500/index.html
+  - url: https://jh-488.github.io/Edrys_Code_Editor/index.html
     config:
       editorText: |
         /*
@@ -78,7 +78,7 @@ modules:
     showInCustom: Station
     width: half
     height: medium
-  - url: http://127.0.0.1:5501/index.html
+  - url: https://jh-488.github.io/edrys_module_timer/index.html
     config:
       timer: 5
     showInCustom: station
