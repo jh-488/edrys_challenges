@@ -40,3 +40,14 @@ If the item is eaten, a happy face will be displayed on the LED Matrix. If the s
 [<img src="https://img.shields.io/badge/%F0%9F%9A%80%20-%20Deploy%20Lab%20-%20light?style=plastic" height="25" />](https://edrys-labs.github.io/?/deploy/https://raw.githubusercontent.com/jh-488/edrys_challenges/main/snake-game.yml)
 
 Required arduino libraries : [LedControl](https://wayoda.github.io/LedControl/)
+
+## RGB-LED
+After starting the challenge the module generates a random color and a challenge template. The user needs to fill the blanks with the right code values. Once the correct answer is submitted, the user wins the challenge and the RGB LED on the board change colors.
+
+[<img src="https://img.shields.io/badge/%F0%9F%9A%80%20-%20Deploy%20Lab%20-%20light?style=plastic" height="25" />](https://edrys-labs.github.io/?/deploy/https://raw.githubusercontent.com/jh-488/edrys_challenges/main/rgb-led.yml)
+
+## RGB-LED(Multiplayer)
+A multiplayer mode for the RGB-LED challenge. Multiple players can join a room and the first one to solve the challenge wins.
+
+[<img src="https://img.shields.io/badge/%F0%9F%9A%80%20-%20Deploy%20Lab%20-%20light?style=plastic" height="25" />](https://edrys-labs.github.io/?/deploy/https://raw.githubusercontent.com/jh-488/edrys_challenges/main/rgb-led(multiplayer).yml)
+
