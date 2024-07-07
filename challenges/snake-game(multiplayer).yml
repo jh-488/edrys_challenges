@@ -1,15 +1,15 @@
-id: BONK5YCj3DZza09sjus6waPbUQO721rmpCxZlJH2
+id: WIF5YCj3DZza09sjus6waPbUQO721rmpCxZlHAT
 createdBy: JH488
 dateCreated: 09052024
-name: Snake Game
+name: Snake Game (Multiplayer Mode)
 meta:
   logo: >-
     
   description: >-
-    A fun Arduino snake game.   
+    A fun Arduino snake game.  
   selfAssign: true
   defaultNumberOfRooms: 0
-  id: 79sFHo6ONB1S25cTN7emXmOibQ2HNWb2G9X3Xn2y
+  id: rsj3DZza09sjus6waPbUQO721rmpCxZlsc63
 members:
   teacher: []
   student: []
@@ -241,6 +241,7 @@ modules:
     height: huge
     serverURL: ws://localhost:8080
     challengeId: snake-game
+    challengeType: multiplayer
   - url: https://edrys-labs.github.io/module-station-stream/index.html
     config: ''
     studentConfig: ''
@@ -249,5 +250,11 @@ modules:
       video: true
       audio: false
     showInCustom: Station
+    width: half
+    height: medium
+  - url: https://jh-488.github.io/edrys_module_multiplayer/index.html
+    config:
+      timer: 5
+    showInCustom: station
     width: half
     height: medium
