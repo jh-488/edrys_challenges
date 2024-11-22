@@ -14,7 +14,7 @@ members:
   teacher: []
   student: []
 modules:
-  - url: https://cross-lab-project.github.io/edrys_module-markdown-it/index.html
+  - url: https://edrys-labs.github.io/module-markdown-it/index.html
     config: >
       # Welcome to the Edrys -  turn-on-led-001 - challenge
 
